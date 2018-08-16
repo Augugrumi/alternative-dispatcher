@@ -16,7 +16,7 @@ RUN apt-get update &&  \
 RUN mvn package && \
     mv target/alternative-dispatcher-1.0-SNAPSHOT-jar-with-dependencies.jar /chaindispatcher.jar
 
-FROM java:8
+FROM openjdk:8-jre-alpine
 ENV PORT=8080 STRING_TO_ADD=vnf
 WORKDIR /
 COPY --from=builder /chaindispatcher.jar /chaindispatcher.jar
